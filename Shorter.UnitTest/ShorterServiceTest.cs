@@ -1,27 +1,47 @@
+using FluentAssertions;
+using Moq;
+using Shorter.Entities;
+using Shorter.Repository.Abstractions;
+using Shorter.Services;
+using Shorter.Services.Abstractions;
 
-namespace Shorter.UnitTest
+namespace Shorter.UnitTest.Services
 {
     public class ShorterServiceTest
     {
-
-        ShorterService shorterService;
-        IAliasGenerator aliasGenerator;
-        IUrlRepository urlRepository;
+        readonly ShorterService shorterService;
+        readonly Mock<IAliasGenerator> aliasGeneratorMock;
+        readonly Mock<IUrlRepository> urlRepository;
+        readonly Mock<IShorterOptions> shorterOptions;
 
         public ShorterServiceTest()
         {
-            aliasGenerator = new Mock.Of<IAliasGenerator>();
-            urlRepository = new Mock.Of<IUrlRepository>();
-            shorterService = new ShorterService(aliasGenerator, urlRepository);
+            aliasGeneratorMock = new Mock<IAliasGenerator>();
+            urlRepository = new Mock<IUrlRepository>();
+            shorterOptions = new Mock<IShorterOptions>();
+            shorterService = new ShorterService(aliasGeneratorMock.Object, urlRepository.Object, shorterOptions.Object);
         }
 
         [Fact]
-        public void Generate_SemUrl_DeveGerarUrlAleatoria()
+        public void Generate_SemApelido_DeveGerarUrlAleatoria()
         {
-            aliasGenerator.Setup(p => p.GetRandomAlias()).Returns("AbCdEfGhIjK");
-            var url = shorterService.Generate();
+            shorterOptions.SetupGet(p => p.BaseUrl).Returns("http://shtr.url/");
+            aliasGeneratorMock.Setup(p => p.GetRandomAlias()).Returns("AbCdEfGhIjK");
 
-            url.Should().Be("AbCdEfGhIjK");
+            var url = shorterService.Generate("http://www.google.com");
+
+            url.Should().Be("http://shtr.url/AbCdEfGhIjK");
+        }
+
+        [Fact]
+        public void Generate_SemApelido_DeveSalvarNovaUrlNoBanco()
+        {
+            shorterOptions.SetupGet(p => p.BaseUrl).Returns("http://shorter.url/");
+            aliasGeneratorMock.Setup(p => p.GetRandomAlias()).Returns("AbCdEfGhIjK");
+
+            shorterService.Generate("http://www.google.com");
+
+            urlRepository.Verify(p => p.Add(It.IsAny<ShorterUrl>()), Times.Once);           
         }
     }
 }

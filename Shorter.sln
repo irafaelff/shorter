@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorter.WebApi", "Shorter.WebApi\Shorter.WebApi.csproj", "{4B9E261F-0F8A-4A22-A1DD-E490957F9D73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.WebApi", "Shorter.WebApi\Shorter.WebApi.csproj", "{4B9E261F-0F8A-4A22-A1DD-E490957F9D73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E0602CCE-95A1-4A3E-9142-E4BD0616284F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4E048DE2-FA70-4D21-9826-52FFBD26769A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorter.UnitTest", "Shorter.UnitTest\Shorter.UnitTest.csproj", "{89A40FEC-D282-4795-9EE0-E677CA088EEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.UnitTest.Services", "Shorter.UnitTest\Shorter.UnitTest.Services.csproj", "{89A40FEC-D282-4795-9EE0-E677CA088EEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorter.Repository", "Shorter.Repository\Shorter.Repository.csproj", "{FF6E6E15-4D61-44C4-802D-F0C7EE908D9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.Repository", "Shorter.Repository\Shorter.Repository.csproj", "{FF6E6E15-4D61-44C4-802D-F0C7EE908D9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorter.Repository.Abstractions", "Shorter.Repository.Abstractions\Shorter.Repository.Abstractions.csproj", "{7764408C-357C-4451-8BB7-1A203400223B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.Repository.Abstractions", "Shorter.Repository.Abstractions\Shorter.Repository.Abstractions.csproj", "{7764408C-357C-4451-8BB7-1A203400223B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorter.Services", "Shorter.Services\Shorter.Services.csproj", "{8ED90CA3-C907-41FA-BA33-2A3BFAE0519F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.Services", "Shorter.Services\Shorter.Services.csproj", "{8ED90CA3-C907-41FA-BA33-2A3BFAE0519F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorter.Services.Abstractions", "Shorter.Services.Abstractions\Shorter.Services.Abstractions.csproj", "{FD438D47-4348-46A5-A487-E816D3D1DA52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.Services.Abstractions", "Shorter.Services.Abstractions\Shorter.Services.Abstractions.csproj", "{FD438D47-4348-46A5-A487-E816D3D1DA52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorter.Entities", "Shorter.Entities\Shorter.Entities.csproj", "{12500E33-09FC-4894-A3CA-5193AE8F5021}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{FD438D47-4348-46A5-A487-E816D3D1DA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD438D47-4348-46A5-A487-E816D3D1DA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD438D47-4348-46A5-A487-E816D3D1DA52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12500E33-09FC-4894-A3CA-5193AE8F5021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12500E33-09FC-4894-A3CA-5193AE8F5021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12500E33-09FC-4894-A3CA-5193AE8F5021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12500E33-09FC-4894-A3CA-5193AE8F5021}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{7764408C-357C-4451-8BB7-1A203400223B} = {4E048DE2-FA70-4D21-9826-52FFBD26769A}
 		{8ED90CA3-C907-41FA-BA33-2A3BFAE0519F} = {4E048DE2-FA70-4D21-9826-52FFBD26769A}
 		{FD438D47-4348-46A5-A487-E816D3D1DA52} = {4E048DE2-FA70-4D21-9826-52FFBD26769A}
+		{12500E33-09FC-4894-A3CA-5193AE8F5021} = {4E048DE2-FA70-4D21-9826-52FFBD26769A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C45691DE-680E-4103-BE45-B61DFC0A0685}
