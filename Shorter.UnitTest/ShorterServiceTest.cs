@@ -1,4 +1,5 @@
 using FluentAssertions;
+using FluentAssertions.ArgumentMatchers.Moq;
 using Moq;
 using Shorter.Entities;
 using Shorter.Repository.Abstractions;
@@ -41,7 +42,13 @@ namespace Shorter.UnitTest.Services
 
             shorterService.Generate("http://www.google.com");
 
-            urlRepository.Verify(p => p.Add(It.IsAny<ShorterUrl>()), Times.Once);           
+            var shorterUrl = new ShorterUrl 
+            { 
+                Alias = "AbCdEfGhIjK",
+                Url = "http://www.google.com"
+            };
+
+            urlRepository.Verify(p => p.Add(Its.EquivalentTo(shorterUrl)), Times.Once);           
         }
     }
 }
