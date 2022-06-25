@@ -9,6 +9,6 @@ namespace Shorter.Repository.Abstractions
 {
     public interface IUrlRepository
     {
-        Task Add(ShorterUrl shorterUrl);
+        Task AddAsync(ShorterUrl shorterUrl);
     }
 }

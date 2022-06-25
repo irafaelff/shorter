@@ -30,7 +30,7 @@ namespace Shorter.Services
                 Alias = newAlias
             };
                                     
-            urlRepository.Add(newShorterUrl);
+            urlRepository.AddAsync(newShorterUrl);
 
             var urlGenerated = shorterOptions.BaseUrl + newAlias;
             return Task.FromResult(urlGenerated);

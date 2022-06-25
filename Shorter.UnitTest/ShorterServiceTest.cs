@@ -1,6 +1,5 @@
 using FluentAssertions;
 using FluentAssertions.ArgumentMatchers.Moq;
-using Moq;
 using Shorter.Entities;
 using Shorter.Repository.Abstractions;
 using Shorter.Services;
@@ -48,7 +47,7 @@ namespace Shorter.UnitTest.Services
                 Url = "http://www.google.com"
             };
 
-            urlRepository.Verify(p => p.Add(Its.EquivalentTo(shorterUrl)), Times.Once);           
+            urlRepository.Verify(p => p.AddAsync(Its.EquivalentTo(shorterUrl)), Times.Once);           
         }
 
         [Theory]
