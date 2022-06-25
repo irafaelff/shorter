@@ -17,8 +17,11 @@ namespace Shorter.Services
             this.shorterOptions = shorterOptions;
         }
 
-        public string Generate(string url)
+        public Task<string> GenerateAsync(string url)
         {
+            if (!IsValidUrl(url))
+                throw new ArgumentException("Url inválida");
+
             var newAlias = aliasGenerator.GetRandomAlias();
 
             var newShorterUrl = new ShorterUrl
@@ -30,7 +33,14 @@ namespace Shorter.Services
             urlRepository.Add(newShorterUrl);
 
             var urlGenerated = shorterOptions.BaseUrl + newAlias;
-            return urlGenerated;
+            return Task.FromResult(urlGenerated);
+        }
+
+        private static bool IsValidUrl(string source)
+        {
+           return Uri.TryCreate(
+               source,
+               UriKind.Absolute, out Uri uriResult) && (uriResult.Scheme == Uri.UriSchemeHttps || uriResult.Scheme == Uri.UriSchemeHttp);
         }
     }
 }

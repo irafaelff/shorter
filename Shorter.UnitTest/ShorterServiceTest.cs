@@ -24,23 +24,23 @@ namespace Shorter.UnitTest.Services
         }
 
         [Fact]
-        public void Generate_SemApelido_DeveGerarUrlAleatoria()
+        public async Task GenerateAsync_DeveGerarUrlAleatoria()
         {
             shorterOptions.SetupGet(p => p.BaseUrl).Returns("http://shtr.url/");
             aliasGeneratorMock.Setup(p => p.GetRandomAlias()).Returns("AbCdEfGhIjK");
 
-            var url = shorterService.Generate("http://www.google.com");
+            var url = await shorterService.GenerateAsync("http://www.google.com");
 
             url.Should().Be("http://shtr.url/AbCdEfGhIjK");
         }
 
         [Fact]
-        public void Generate_SemApelido_DeveSalvarNovaUrlNoBanco()
+        public async Task GenerateAsync_DeveSalvarNovaUrlNoBanco()
         {
             shorterOptions.SetupGet(p => p.BaseUrl).Returns("http://shorter.url/");
             aliasGeneratorMock.Setup(p => p.GetRandomAlias()).Returns("AbCdEfGhIjK");
 
-            shorterService.Generate("http://www.google.com");
+            await shorterService.GenerateAsync("http://www.google.com");
 
             var shorterUrl = new ShorterUrl 
             { 
@@ -49,6 +49,21 @@ namespace Shorter.UnitTest.Services
             };
 
             urlRepository.Verify(p => p.Add(Its.EquivalentTo(shorterUrl)), Times.Once);           
+        }
+
+        [Theory]
+        [InlineData("/www.google.com")]
+        [InlineData("//www.google.com")]
+        [InlineData("h//www.google.com")]
+        [InlineData("ht//www.google.com")]
+        [InlineData("htt//www.google.com")]
+        [InlineData("www.google.com")]
+        [InlineData("abcdefg")]
+        public async Task GenerateAsync_ComUrlInvalida_DeveLancarExcecao(string url)
+        {           
+            var action = () => shorterService.GenerateAsync(url);
+
+            await action.Should().ThrowAsync<ArgumentException>();
         }
     }
 }
