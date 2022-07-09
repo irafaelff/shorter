@@ -19,7 +19,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.Services", "Shorter
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.Services.Abstractions", "Shorter.Services.Abstractions\Shorter.Services.Abstractions.csproj", "{FD438D47-4348-46A5-A487-E816D3D1DA52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shorter.Entities", "Shorter.Entities\Shorter.Entities.csproj", "{12500E33-09FC-4894-A3CA-5193AE8F5021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shorter.Entities", "Shorter.Entities\Shorter.Entities.csproj", "{12500E33-09FC-4894-A3CA-5193AE8F5021}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{ED9B7298-391C-4077-93C7-145A1077CD30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{FEAA0F8E-0073-4AA0-B369-9089A9F3D4F0}"
+	ProjectSection(SolutionItems) = preProject
+		workflow.yml = workflow.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +74,7 @@ Global
 		{8ED90CA3-C907-41FA-BA33-2A3BFAE0519F} = {4E048DE2-FA70-4D21-9826-52FFBD26769A}
 		{FD438D47-4348-46A5-A487-E816D3D1DA52} = {4E048DE2-FA70-4D21-9826-52FFBD26769A}
 		{12500E33-09FC-4894-A3CA-5193AE8F5021} = {4E048DE2-FA70-4D21-9826-52FFBD26769A}
+		{FEAA0F8E-0073-4AA0-B369-9089A9F3D4F0} = {ED9B7298-391C-4077-93C7-145A1077CD30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C45691DE-680E-4103-BE45-B61DFC0A0685}
