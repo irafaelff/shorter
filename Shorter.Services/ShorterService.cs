@@ -29,7 +29,7 @@ namespace Shorter.Services
                 Url = url,
                 Alias = newAlias
             };
-                                    
+
             urlRepository.AddAsync(newShorterUrl);
 
             var urlGenerated = shorterOptions.BaseUrl + newAlias;
@@ -38,9 +38,9 @@ namespace Shorter.Services
 
         private static bool IsValidUrl(string source)
         {
-           return Uri.TryCreate(
-               source,
-               UriKind.Absolute, out Uri uriResult) && (uriResult.Scheme == Uri.UriSchemeHttps || uriResult.Scheme == Uri.UriSchemeHttp);
+            return Uri.TryCreate(
+                source,
+                UriKind.Absolute, out Uri uriResult) && (uriResult.Scheme == Uri.UriSchemeHttps || uriResult.Scheme == Uri.UriSchemeHttp);
         }
     }
 }
